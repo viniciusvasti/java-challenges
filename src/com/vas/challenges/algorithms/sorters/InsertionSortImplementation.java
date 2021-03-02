@@ -4,6 +4,12 @@ package com.vas.challenges.algorithms.sorters;
  * Insertion sort is an in-place sort algorithm.
  * It hasn't the better performance, but it's better than simple algorithms like Selection Sort or Bubble Sort.
  * It also supports inserting more elements during the sorting process and it won't be interrupted.
+ *
+ * Worst Case (when array is reversed sorted): O(n²)
+ * Best Case (when array is already sorted): O(n)
+ * (my mind version has a little worst performance)
+ *
+ * Auxiliary space: O(1) for iterative version and O(n) for the recursive
  */
 
 public class InsertionSortImplementation {
@@ -17,6 +23,11 @@ public class InsertionSortImplementation {
     System.out.println("Insertion sorting from google...");
     insertionSort2(arr2);
     printArray(arr2);
+
+    int[] arr3 = new int[] { 3, 8, 5, 4, 1, 9, -2 };
+    System.out.println("Insertion sorting recursively...");
+    insertionSortRecursive(arr3, 1, arr3.length-1);
+    printArray(arr3);
   }
 
   // My implementation
@@ -50,6 +61,20 @@ public class InsertionSortImplementation {
         j--;
       }
       arr[j] = value;
+    }
+  }
+
+  public static void insertionSortRecursive(int[] arr, int unOrderedFirst, int unOrderedlast) {
+    int value = arr[unOrderedFirst];
+    int j = unOrderedFirst;
+    while (j > 0 && arr[j-1] > value) {
+      arr[j] = arr[j-1];
+      j--;
+    }
+    arr[j] = value;
+    
+    if (unOrderedFirst + 1 <= unOrderedlast) {
+      insertionSortRecursive(arr, unOrderedFirst + 1, unOrderedlast);
     }
   }
   
