@@ -1,6 +1,8 @@
 package com.vas.challenges.algorithms.sorters;
 
 /*
+ * It's called "selection" because the smallest element of the unordered subset of the array
+ * and add it as the last element of the ordered subset.
  * Selection sort is an in-place sort algorithm.
  * It's very simple and it's main advantage is when memory is very limited.
  *

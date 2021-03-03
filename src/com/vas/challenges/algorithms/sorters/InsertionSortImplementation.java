@@ -1,6 +1,8 @@
 package com.vas.challenges.algorithms.sorters;
 
 /*
+ * It's called "insertion" because the next element of the non ordered subset of the array is taken
+ * and inserted on its right position by comparing with ordered elements from the last to the first
  * Insertion sort is an in-place sort algorithm.
  * It hasn't the better performance, but it's better than simple algorithms like Selection Sort or Bubble Sort.
  * It also supports inserting more elements during the sorting process and it won't be interrupted.
