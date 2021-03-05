@@ -100,6 +100,10 @@ public class LinkedListMain {
       return getNodeByValue(value) != null;
     }
     
+    public boolean isEmpty() {
+      return root == null;
+    }
+    
     private Node<T> getNodeByValue(T value) {
       Node<T> current = root;
       Node<T> target = new Node<>(value);
