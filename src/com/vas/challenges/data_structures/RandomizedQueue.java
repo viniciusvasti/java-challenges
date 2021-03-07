@@ -2,9 +2,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.lang.Math;
 
-public class RandomizedQueueMain<T> implements Iterable<T> {
+public class RandomizedQueue<T> implements Iterable<T> {
   public static void main(String[] args) {
-    RandomizedQueueMain<String> randomPeopleQueue = new RandomizedQueueMain<>();
+    RandomizedQueue<String> randomPeopleQueue = new RandomizedQueue<>();
     randomPeopleQueue.enqueue("Raquel");
     randomPeopleQueue.enqueue("Vinicius");
     randomPeopleQueue.enqueue("Arthur");
@@ -37,7 +37,7 @@ public class RandomizedQueueMain<T> implements Iterable<T> {
   private int size = 0;
   private T[] items;
 
-  public RandomizedQueueMain() {
+  public RandomizedQueue() {
     items = (T[]) new Object[INITIAL_CAPACITY];
   }
 
