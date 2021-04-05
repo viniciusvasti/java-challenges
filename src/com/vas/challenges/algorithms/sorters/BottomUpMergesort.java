@@ -8,7 +8,7 @@ package com.vas.challenges.algorithms.sorters;
   * Best Case: O()
   */
 
-public class Mergesort {
+public class BottomUpMergesort {
   public static void main(String[] args) {
     int[] arr = new int[100_000_000];
     for (int i = 0; i < arr.length; i++) {
@@ -25,23 +25,18 @@ public class Mergesort {
   
   private static void sort(int[] arr) {
     int[] aux = new int[arr.length];
-    sort(arr, aux, 0, arr.length - 1);
-    assert isSorted(arr, 0, arr.length - 1);
-  }
-  
-  private static void sort(int[] arr, int[] aux, int left, int right) {
-    if (left >= right) return;
     
-    int mid = left + (right - left) / 2;
-    
-    sort(arr, aux, left, mid);
-    sort(arr, aux, mid + 1, right);
-    
-    // Improvement: if biggest element from left is less or equal than smallest element from right
-    // This subarray is sorted already
-    if (arr[mid] <= arr[mid+1]) return;
+    for (int subArraysSize = 1; subArraysSize < arr.length; subArraysSize = subArraysSize*2) {
+      for (int i = 0; i < arr.length - subArraysSize; i += subArraysSize*2) {
+        int left = i;
+        int right = left + subArraysSize*2 - 1;
+        int mid = left + ((right-left)/2);
+        // An overflow may occur after doubling subArraysSize, so the last index should be length - 1
+        merge(arr, aux, left, mid, right <= arr.length-1 ? right : arr.length-1);
+      }
+    }
 
-    merge(arr, aux, left, mid, right);
+    assert isSorted(arr, 0, arr.length - 1);
   }
 
   private static void merge(int[] arr, int[] aux, int left, int mid, int right) {

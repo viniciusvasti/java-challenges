@@ -1,12 +1,14 @@
+package com.vas.challenges.data_structures;
+
 /**
  * Stack with max. Create a data structure that efficiently supports the stack operations (push and pop)
  * and also a return-the-maximum operation. Assume the elements are real numbers so that you can compare them.
  */
 
-public class Stack {
+public class StackWithMaximum {
   public static void main(String[] args) {
     System.out.println("Running Stack...");
-    Stack stack = new Stack();
+    StackWithMaximum stack = new StackWithMaximum();
     System.out.println("Stack stack maximum: " + stack.maximum());
     stack.push(3.0);
     System.out.println("Stack stack maximum: " + stack.maximum());
